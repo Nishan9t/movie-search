@@ -33,7 +33,13 @@ function App() {
     <button onClick={() => getMovieData()}>Show movie</button>
 
     <br />
- 
+    {data.map((movie, index) => (
+      <div key={index}>
+        <img src={movie.Poster} alt="movie"></img>
+        <br />
+        {movie.Title}
+      </div>
+    ))}
   </div>
   );
 }
