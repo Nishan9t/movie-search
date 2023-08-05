@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
+import Card from './Card';
 
 function App() {
   const [movie, setMovie] = useState("");
@@ -24,22 +25,19 @@ function App() {
   }, []);
   
   return (
-    <div className="App">
-    <input
+    <div className='text-center'>
+    <input className='mx-auto md:w-[1000px] border border-blue-500 border-4 rounded-xl p-2 my-2'
       type="text"
       value={movie}
       onChange={(e) => setMovie(e.target.value)}
     />
-    <button onClick={() => getMovieData()}>Show movie</button>
+    <br/>
+    <button className='p-2 bg-green-400 rounded border hover:scale-[120%] m-4' onClick={() => getMovieData()}>Show movie</button>
 
     <br />
-    {data.map((movie, index) => (
-      <div key={index}>
-        <img src={movie.Poster} alt="movie"></img>
-        <br />
-        {movie.Title}
-      </div>
-    ))}
+    
+    <Card data={data}/>
+    
   </div>
   );
 }
